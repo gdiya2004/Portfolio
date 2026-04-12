@@ -36,6 +36,15 @@ const projects = [
   github: "https://github.com/gdiya2004/NetworkSecurity.git",
 
   image: "/projects/network.png",
+},
+{
+  title: "LetsConnectX – Real-Time Scalable Chat App",
+  description:
+    "Developed a full-stack real-time chat application using WebSockets with JWT-based authentication and Redis Pub/Sub for scalable multi-server communication. Implemented room-based messaging, message persistence using MongoDB, and deployed the system on Vercel and Render.",
+  tech: ["React", "TypeScript", "Node.js", "WebSocket", "Redis", "MongoDB", "JWT"],
+  github: "https://github.com/gdiya2004/letsconnectx", // update if needed
+  live:"https://letsconnectx.vercel.app",
+  image: "/projects/image.png",
 }
 ];
 
