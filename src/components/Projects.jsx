@@ -11,14 +11,15 @@ const projects = [
     image: "projects/feedsense.png", // put image in public/projects
     
   },
-  {
-    title: "EverVice",
-    description:
-      "A MERN platform connecting users with verified service providers, reducing manual search effort by 50%.",
-    tech: ["MongoDB", "Express", "React", "Node.js"],
-    github: "https://github.com/gdiya2004/IIITUNA.git",
-    image: "projects/evervice.png",
-  },
+ {
+  title: "EverVice",
+  description:
+    "A scalable full-stack service marketplace with role-based access (User, Vendor, Admin). Implemented secure authentication using JWT, vendor approval workflow, service management dashboard, and booking system. Deployed using Vercel and Render with MongoDB Atlas.",
+  tech: ["Next.js", "Node.js", "Express", "MongoDB", "JWT", "Tailwind CSS"],
+  github: "https://github.com/gdiya2004/EverVice",
+  live:"https://ever-vice-lsf5xfy1i-diya-guptas-projects-a3dbf531.vercel.app/dashboard",
+  image: "projects/evervice.png",
+},
   {
     title: "Cybernauts Website",
     description:
