@@ -1,17 +1,101 @@
-# React + Vite
+# 🌐 Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio website built to showcase my projects, skills, and experience as a developer.
 
-Currently, two official plugins are available:
+🔗 **Live Website:** [https://your-vercel-link.vercel.app](https://portfolio-indol-six-30.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* 💼 Showcases my projects with details
+* 📄 Clean and responsive UI
+* ⚡ Fast performance using Vite
+* 📱 Fully responsive (mobile + desktop)
+* 📬 Contact section for easy reach
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
 
+* **Frontend:** React, JavaScript
+* **Styling:** CSS / Tailwind (if used, adjust accordingly)
+* **Build Tool:** Vite
+* **Deployment:** Vercel
+
+---
+
+## 📁 Project Structure
+
+```
+Portfolio/
+│── public/        # Static assets
+│── src/           # Main source code
+│── index.html     # Entry HTML file
+│── package.json   # Dependencies and scripts
+│── vite.config.js # Vite configuration
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+To run this project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/your-repo-name.git
+
+# Navigate to project folder
+cd your-repo-name
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+```
+
+---
+
+## 🌍 Deployment
+
+This project is deployed using **Vercel**.
+
+To deploy your own:
+
+1. Push code to GitHub
+2. Go to Vercel
+3. Import your repository
+4. Click **Deploy**
+
+---
+
+## ✨ Future Improvements
+
+* Add animations and transitions
+* Improve UI/UX design
+* Add blog section
+* Integrate backend for contact form
+
+---
+
+## 🙋‍♀️ About Me
+
+Hi, I'm **Diya**, a B.Tech IT student passionate about:
+
+* Web Development (MERN Stack)
+* Data Structures & Algorithms
+* Building real-world projects
+
+---
+
+## 📬 Contact
+
+* LinkedIn: (add your link)
+* GitHub: (add your link)
+* Email: (add your email)
+
+---
+
+⭐ If you like this project, feel free to star the repo!
