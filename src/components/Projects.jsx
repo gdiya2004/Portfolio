@@ -45,7 +45,7 @@ const projects = [
   tech: ["React", "TypeScript", "Node.js", "WebSocket", "Redis", "MongoDB", "JWT"],
   github: "https://github.com/gdiya2004/letsconnectx", // update if needed
   live:"https://letsconnectx.vercel.app",
-  image: "",
+  image: "/projects/connect.png",
 },
 {
   title: "Cloud File Upload System – Azure Blob Storage",
