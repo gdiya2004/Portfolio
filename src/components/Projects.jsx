@@ -12,7 +12,7 @@ const projects = [
     
   },
  {
-  title: "EverVice",
+  title: "ServEase",
   description:
     "A scalable full-stack service marketplace with role-based access (User, Vendor, Admin). Implemented secure authentication using JWT, vendor approval workflow, service management dashboard, and booking system. Deployed using Vercel and Render with MongoDB Atlas.",
   tech: ["Next.js", "Node.js", "Express", "MongoDB", "JWT", "Tailwind CSS"],
@@ -45,7 +45,16 @@ const projects = [
   tech: ["React", "TypeScript", "Node.js", "WebSocket", "Redis", "MongoDB", "JWT"],
   github: "https://github.com/gdiya2004/letsconnectx", // update if needed
   live:"https://letsconnectx.vercel.app",
-  image: "/projects/image.png",
+  image: "",
+},
+{
+  title: "Cloud File Upload System – Azure Blob Storage",
+  description:
+    "Developed a cloud-based file upload system using Node.js and Azure Blob Storage, enabling users to upload and access files via generated URLs. Implemented file validation (type and size restrictions), secure configuration using environment variables, and deployed the application on Azure App Service with proper routing and server configuration.",
+  tech: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "Azure Blob Storage", "Azure App Service"],
+  github: "https://github.com/gdiya2004/CloudFileUpload", // update this
+  live: "https://fileupload-apcvdtcxf8fwbech.southeastasia-01.azurewebsites.net/", // update this
+  image: "/projects/file.png",
 }
 ];
 
