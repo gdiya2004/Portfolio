@@ -68,7 +68,7 @@ const Navbar = () => {
 
         {/* Resume Button */}
         <a
-          href="/resume.pdf"
+          href="\Microsoft_fte.pdf"
           className="hidden md:block bg-gradient-to-r from-purple-500 to-indigo-500 px-5 py-2 rounded-full text-white hover:scale-105 transition"
         >
           Resume
@@ -104,7 +104,7 @@ const Navbar = () => {
           ))}
 
           <a
-            href="portfolio\public\Microsoft_fte.pdf"
+            href="\Microsoft_fte.pdf"
             className="bg-purple-600 px-4 py-2 rounded-full text-center"
           >
             Resume
