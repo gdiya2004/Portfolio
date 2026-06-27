@@ -104,7 +104,7 @@ const Navbar = () => {
           ))}
 
           <a
-            href="C:\Users\19200\Downloads\DiyaGupta_Dev.pdf"
+            href="portfolio\public\Microsoft_fte.pdf"
             className="bg-purple-600 px-4 py-2 rounded-full text-center"
           >
             Resume

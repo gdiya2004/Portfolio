@@ -4,7 +4,7 @@ const projects = [
   {
     title: "FeedSense",
     description:
-      "A feedback analysis platform that classifies user feedback using machine learning and visualizes insights in real-time.",
+      "A feedback analysis platform that classifies user feedback using machine learning and visualizes insights in real-time.(working on it)",
     tech: ["React", "Node.js", "Express", "Python"],
     github: "https://github.com/gdiya2004/feedsense-feedback-classifier.git",
     live: "https://feedsense-feedback-classifier.vercel.app",
