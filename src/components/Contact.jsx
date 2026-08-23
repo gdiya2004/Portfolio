@@ -165,11 +165,6 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
-            <div className="mt-4 pt-3 border-t border-white/[0.06] text-[11px] text-emerald-400 flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>Available for Summer 2026 roles</span>
-            </div>
           </motion.div>
 
         </div>
