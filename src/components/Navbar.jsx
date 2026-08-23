@@ -2,30 +2,33 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "HOME", id: "home" },
-  { name: "EXPERTISE", id: "services" },
-  { name: "PROJECTS", id: "projects" },
-  { name: "EXPERIENCE", id: "experience" },
-  { name: "CONTACT", id: "contact" },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
+  { name: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
-  const [active, setActive] = useState("home");
-  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
+      const sections = navLinks.map((link) => link.href.substring(1));
       const scrollPosition = window.scrollY + 200;
-      for (const link of navLinks) {
-        const element = document.getElementById(link.id);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
+
+      for (const section of sections) {
+        const el = document.getElementById(section);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
           if (scrollPosition >= top && scrollPosition < top + height) {
-            setActive(link.id);
+            setActiveSection(section);
             break;
           }
         }
@@ -37,138 +40,115 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-8 py-4">
-      <div
-        className={`max-w-7xl mx-auto rounded-2xl transition-all duration-300 ${
-          scrolled
-            ? "glass-panel shadow-[0_10px_35px_rgba(0,0,0,0.5)] px-6 py-3 border border-sky-500/20"
-            : "bg-transparent px-4 py-2"
-        }`}
-      >
-        <div className="flex items-center justify-between">
-          {/* Logo Brand */}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0a0d14]/90 backdrop-blur-md border-b border-white/[0.06] py-3.5 shadow-lg shadow-black/40"
+          : "bg-transparent py-5"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between">
+        {/* Logo: < /> Diya Gupta */}
+        <a
+          href="#home"
+          className="flex items-center gap-2.5 group cursor-pointer"
+        >
+          <div className="w-8 h-8 rounded-lg bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-mono font-bold text-sm group-hover:scale-105 group-hover:bg-indigo-600/30 transition-all">
+            &lt;/&gt;
+          </div>
+          <span className="text-lg font-extrabold tracking-tight text-white group-hover:text-indigo-300 transition-colors font-mono">
+            Diya Gupta
+          </span>
+        </a>
+
+        {/* Desktop Nav Links */}
+        <nav className="hidden md:flex items-center gap-1 bg-[#111625]/80 px-4 py-1.5 rounded-full border border-white/[0.08] backdrop-blur-md">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`relative px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${
+                  isActive
+                    ? "text-white bg-indigo-600/30 text-indigo-200"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                {link.name}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNav"
+                    className="absolute inset-0 rounded-full bg-indigo-600/20 border border-indigo-500/40 -z-10"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Right CTA Button: Hire Me ↗ / Resume */}
+        <div className="hidden md:flex items-center gap-3">
           <a
-            href="#home"
-            className="flex items-center gap-2.5 group focus:outline-none"
+            href="/Microsoft_fte.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 rounded-xl text-xs font-bold text-white gradient-btn-purple shadow-md shadow-indigo-500/20 flex items-center gap-1.5 active:scale-95 transition-all"
           >
-            <div className="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center font-extrabold text-white text-sm shadow-md shadow-sky-500/30 group-hover:scale-105 transition-transform">
-              D.
-            </div>
-            <span className="font-extrabold text-white tracking-wider text-base sm:text-lg uppercase">
-              DIYA <span className="text-sky-400">GUPTA</span>
-            </span>
+            <span>Resume</span>
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
           </a>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const isActive = active === link.id;
-              return (
-                <a
-                  key={link.id}
-                  href={`#${link.id}`}
-                  className={`text-xs font-bold tracking-widest transition-colors duration-200 relative py-1 ${
-                    isActive
-                      ? "text-sky-400"
-                      : "text-slate-300 hover:text-white"
-                  }`}
-                >
-                  {link.name}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavLine"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-sky-400 rounded-full"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </a>
-              );
-            })}
-          </nav>
-
-          {/* Action CTAs */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="#contact"
-              className="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-white gradient-btn-cyan shadow-md shadow-sky-500/25 hover:shadow-sky-500/40 hover:scale-105 active:scale-95 transition-all duration-200"
-            >
-              LET&apos;S TALK
-            </a>
-            <a
-              href="/Microsoft_fte.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white border border-slate-700 hover:border-sky-400 transition-all duration-200"
-            >
-              RESUME
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center gap-2">
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-slate-300 hover:text-white transition"
-              aria-label="Toggle navigation menu"
-            >
-              {menuOpen ? (
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
-          </div>
         </div>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 rounded-xl bg-white/[0.04] border border-white/10 text-slate-300 hover:text-white"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          )}
+        </button>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
-        {menuOpen && (
+        {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.98 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden mt-2 p-5 rounded-2xl glass-panel border border-sky-500/20 shadow-2xl flex flex-col gap-2"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="md:hidden bg-[#0e1322] border-b border-white/10 px-6 py-5 mt-3 space-y-3"
           >
             {navLinks.map((link) => (
               <a
-                key={link.id}
-                href={`#${link.id}`}
-                onClick={() => setMenuOpen(false)}
-                className={`px-4 py-3 rounded-xl text-xs font-bold tracking-wider transition flex items-center justify-between ${
-                  active === link.id
-                    ? "bg-sky-500/20 text-sky-300 border border-sky-500/30"
-                    : "text-slate-300 hover:bg-white/5 hover:text-white"
-                }`}
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-sm font-medium text-slate-300 hover:text-indigo-400 py-1"
               >
-                <span>{link.name}</span>
-                {active === link.id && (
-                  <span className="w-2 h-2 rounded-full bg-sky-400"></span>
-                )}
+                {link.name}
               </a>
             ))}
-
             <div className="pt-3 border-t border-white/10 flex gap-2">
-              <a
-                href="#contact"
-                onClick={() => setMenuOpen(false)}
-                className="flex-1 py-3 text-center rounded-xl gradient-btn-cyan text-white text-xs font-bold uppercase tracking-wider"
-              >
-                LET&apos;S TALK
-              </a>
               <a
                 href="/Microsoft_fte.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
-                className="flex-1 py-3 text-center rounded-xl bg-white/5 border border-slate-700 text-white text-xs font-bold uppercase tracking-wider"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center py-2.5 rounded-xl text-xs font-bold text-white gradient-btn-purple"
               >
-                RESUME
+                Resume ↗
               </a>
             </div>
           </motion.div>

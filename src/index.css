@@ -6,14 +6,13 @@
 }
 
 :root {
-  --bg-primary: #081225;
-  --bg-secondary: #0c1b36;
-  --bg-card: rgba(14, 28, 56, 0.7);
-  --border-card: rgba(56, 189, 248, 0.15);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --accent-cyan: #38bdf8;
-  --accent-blue: #2563eb;
+  --bg-primary: #0a0d14;
+  --bg-secondary: #111625;
+  --bg-card: rgba(17, 22, 37, 0.85);
+  --border-card: rgba(255, 255, 255, 0.08);
+  --border-card-hover: rgba(139, 92, 246, 0.35);
   --accent-purple: #8b5cf6;
+  --accent-indigo: #6366f1;
 }
 
 * {
@@ -26,7 +25,7 @@ html {
 }
 
 body {
-  background-color: #081225;
+  background-color: #0a0d14;
   color: #f1f5f9;
   min-height: 100vh;
   overflow-x: hidden;
@@ -39,115 +38,83 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #081225;
+  background: #0a0d14;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e3a5f;
+  background: #1f273d;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+  background: #6366f1;
 }
 
 /* Glassmorphism & UI Utilities */
 .glass-panel {
-  background: rgba(10, 22, 44, 0.85);
+  background: rgba(13, 17, 30, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.glass-card {
-  background: rgba(12, 25, 50, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(56, 189, 248, 0.12);
+.dark-card {
+  background: #111625;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.4);
+.dark-card:hover {
+  border-color: rgba(139, 92, 246, 0.4);
   transform: translateY(-3px);
-  box-shadow: 0 14px 35px -10px rgba(56, 189, 248, 0.18), 0 0 20px -2px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.15);
 }
 
-.gradient-text-cyan {
-  background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 50%, #818cf8 100%);
+.gradient-text-purple {
+  background: linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #60a5fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.gradient-text-blue {
-  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 60%, #93c5fd 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gradient-btn-cyan {
-  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 50%, #38bdf8 100%);
+.gradient-btn-purple {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
   color: #ffffff;
   transition: all 0.3s ease;
 }
 
-.gradient-btn-cyan:hover {
-  box-shadow: 0 0 25px rgba(14, 165, 233, 0.5);
+.gradient-btn-purple:hover {
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.45);
   transform: translateY(-1px);
 }
 
+/* Purple Avatar Glowing Orb */
+.avatar-orb {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.6) 0%, rgba(99, 102, 241, 0.4) 40%, rgba(10, 13, 20, 0) 70%);
+}
+
+/* Code Snippet Card */
+.code-card {
+  background: rgba(14, 18, 32, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
 /* Subtle background grid pattern */
-.bg-grid-tech {
-  background-size: 48px 48px;
+.bg-grid-dark {
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
-}
-
-/* Decorative Wireframe Ring Graphics */
-.wireframe-rings {
-  background-image: radial-gradient(circle, transparent 40%, rgba(56, 189, 248, 0.15) 41%, transparent 42%, transparent 58%, rgba(56, 189, 248, 0.12) 59%, transparent 60%, transparent 78%, rgba(56, 189, 248, 0.08) 79%, transparent 80%);
-}
-
-/* Horizontal Line Grid Mask (as in hero backdrop) */
-.hero-lines-pattern {
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(56, 189, 248, 0.18) 0px,
-    rgba(56, 189, 248, 0.18) 1px,
-    transparent 1px,
-    transparent 18px
-  );
-  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 40%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 40%, transparent 75%);
-}
-
-/* Floating Spheres */
-.floating-orb {
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #38bdf8, #0369a1 60%, #082f49 90%);
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
 
 /* Keyframes */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(2deg); }
-}
-
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.06); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-slow {
-  animation: float 9s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 7s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
